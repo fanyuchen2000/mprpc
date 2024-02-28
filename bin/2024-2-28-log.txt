@@ -1,0 +1,2 @@
+15:4:58 => first log message!
+15:4:58 => /home/admin/project/mprpc/example/callee/friendservice.cc:main:43

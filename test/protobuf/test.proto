@@ -1,0 +1,50 @@
+syntax = "proto3";  // 声明版本
+
+package fixbug;   // 声明了代码所在的包（c++来说相当于是namespace）
+// 定义下面的选项表示生成service服务类和rpc方法描述，默认是不生成的
+option cc_generic_services = true;
+
+// 共有的消息
+message Res
+{
+    int32 errcode = 1;
+    bytes errmsg = 2;
+}
+
+message LoginRequest
+{
+    bytes  name = 1;
+    bytes  pwd = 2;
+    map<int32,string> test = 3;
+}
+message LoginResponse
+{
+    Res result = 1;
+    bool success = 2; 
+}
+message GetFriendListRequest
+{
+    uint32 userid = 1;
+}
+message User
+{
+    bytes name = 1;
+    uint32 age = 2;
+    enum Sex
+    {
+        MAN = 0;
+        WOMAN = 1;
+    }
+    Sex sex = 3;
+}
+message GetFriendListResponse
+{
+    Res result = 1;
+    repeated User friend_list = 2;  // 定义了一个列表类型
+}
+
+service UserServiceRpc
+{
+    rpc Login(LoginRequest) returns(LoginResponse);
+    rpc GetFriendLists(GetFriendListRequest) returns(GetFriendListResponse);
+} 

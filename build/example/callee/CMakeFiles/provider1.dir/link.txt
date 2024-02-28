@@ -1,0 +1,1 @@
+/usr/bin/g++  -g  -rdynamic CMakeFiles/provider1.dir/friendservice.cc.o CMakeFiles/provider1.dir/__/firend.pb.cc.o  -o ../../../bin/provider1  -L/home/admin/project/mprpc/lib -Wl,-rpath,/home/admin/project/mprpc/lib ../../../lib/libmprpc.a -lprotobuf -lmuduo_net -lmuduo_base -lpthread 
